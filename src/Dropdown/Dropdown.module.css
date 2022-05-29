@@ -1,0 +1,62 @@
+
+
+.dropdown{
+    display: flex;
+    flex-direction: row;
+    margin-right: 5rem;
+    
+}
+
+
+.dropdown_content{
+    display: flex;
+    font-size: 1.6rem;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.dropdown_title{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown_items{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 12px;
+    z-index: 1;
+ }
+
+
+ /* dropdown_items has to be CHILD of dropdown title for this to work */
+ .dropdown_title:hover
+ .dropdown_items {
+    display: block;
+  }
+
+
+
+  @media screen and (max-width: 768px) {
+
+
+    .dropdown{
+        margin-top: 1rem;
+        margin-right: 0rem;
+    }
+  }
+
+
+
+  @media screen and (max-width: 480px) {
+    
+  
+
+   .dropdown_title{
+    font-size: 1.2rem;
+   }
+   
+ }
