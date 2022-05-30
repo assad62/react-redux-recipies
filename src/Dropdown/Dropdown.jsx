@@ -1,6 +1,13 @@
 import React from 'react'
+import DropdownContent from '../DropdownContent'
+import DrodownContent from '../DropdownContent/DrodownContent'
 import classes from './Dropdown.module.css'
 const Dropdown = () => {
+
+
+  const countries = ["Aus","Pak","India","2"];
+  const categories = ["fast food", "keto", "two"]
+
   return (
     <div>
    <div className={classes.dropdown}>
@@ -8,10 +15,10 @@ const Dropdown = () => {
       <div className={classes.dropdown_title}>
          <p>Select Country</p>
          <div className={classes.dropdown_items}>
-         <p>Hello World!</p>
-         <p>Hello World!</p>
-         <p>Hello World!</p>  
-         <p>Hello World!</p>
+        
+           {
+             countries.map((e) => <DrodownContent item={e} />)
+           }
          </div>
         
 
@@ -20,23 +27,23 @@ const Dropdown = () => {
 
     </div>
     <div style={{width: "10rem"}}/>  
-
     <div className={classes.dropdown_content}>
-     <div className={classes.dropdown_title}>
+      <div className={classes.dropdown_title}>
          <p>Select Category</p>
          <div className={classes.dropdown_items}>
-           <p>Hello World!</p>
-           <p>Hello World!</p>
-           <p>Hello World!</p>
-           <p>Hello World!</p>
-           <p>Hello World!</p>
-           <p>Hello World!</p>
-           <p>Hello World!</p>
-           <p>Hello World!</p>
+           {
+             categories.map((e) => <DrodownContent item={e} />)
+           }
+           
+         </div>
+        
 
       </div>
+    
+
     </div>
-   </div>
+    {/* <DrodownContent item="hello"  title="title"/> */}
+    
 </div>
 </div>
   )
