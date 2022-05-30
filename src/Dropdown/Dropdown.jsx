@@ -1,11 +1,24 @@
 import React from 'react'
-import DropdownContent from '../DropdownContent'
+import { useSelector, useDispatch } from 'react-redux'
+import {useEffect} from 'react'
+import { getAllAreas } from './areasSlice'
 import DrodownContent from '../DropdownContent/DrodownContent'
 import classes from './Dropdown.module.css'
+import { getAllCategories } from './categoriesSlice'
 const Dropdown = () => {
 
+  const Countries =  useSelector((state) => state.areas.value)
+  const Categories = useSelector ((state) => state.categories.value)
+  const dispatch = useDispatch()
 
-  const countries = ["Aus","Pak","India","2"];
+  useEffect(()=>{
+    dispatch(getAllAreas())
+  },[Countries])
+
+  useEffect(()=>{
+    dispatch(getAllCategories())
+  },[])
+  //const countries = ["Aus","Pak","India","2"];
   const categories = ["fast food", "keto", "two"]
 
   return (
@@ -15,9 +28,8 @@ const Dropdown = () => {
       <div className={classes.dropdown_title}>
          <p>Select Country</p>
          <div className={classes.dropdown_items}>
-        
            {
-             countries.map((e) => <DrodownContent item={e} />)
+             Countries.map((e,i) => <DrodownContent item={e.strArea} />)
            }
          </div>
         
@@ -32,7 +44,7 @@ const Dropdown = () => {
          <p>Select Category</p>
          <div className={classes.dropdown_items}>
            {
-             categories.map((e) => <DrodownContent item={e} />)
+             Categories.map((e) => <DrodownContent item={e.strCategory} />)
            }
            
          </div>

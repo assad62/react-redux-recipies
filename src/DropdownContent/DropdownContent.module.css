@@ -1,0 +1,15 @@
+.dropdown_content{
+    height: 3rem; 
+    border-bottom: 1rem solid;
+    border-width: 0.1px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1rem;
+   
+}
+
+.dropdown_content:hover{
+    background-color: #ED9390;
+    color: white;
+}
