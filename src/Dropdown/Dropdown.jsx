@@ -5,6 +5,10 @@ import { getAllAreas } from './areasSlice'
 import DrodownContent from '../DropdownContent/DrodownContent'
 import classes from './Dropdown.module.css'
 import { getAllCategories } from './categoriesSlice'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretDown } from '@fortawesome/fontawesome-free-solid'
+
+
 const Dropdown = () => {
 
   const Countries =  useSelector((state) => state.areas.value)
@@ -13,7 +17,7 @@ const Dropdown = () => {
 
   useEffect(()=>{
     dispatch(getAllAreas())
-  },[Countries])
+  },[])
 
   useEffect(()=>{
     dispatch(getAllCategories())
@@ -26,10 +30,13 @@ const Dropdown = () => {
    <div className={classes.dropdown}>
     <div className={classes.dropdown_content}>
       <div className={classes.dropdown_title}>
-         <p>Select Country</p>
+      <div className={classes.dropdown_title_content}>
+           <p>Select Country</p>
+           <FontAwesomeIcon icon={faCaretDown} />
+         </div>
          <div className={classes.dropdown_items}>
            {
-             Countries.map((e,i) => <DrodownContent item={e.strArea} />)
+             Countries.map((e,i) => <DrodownContent key={i} item={e.strArea} />)
            }
          </div>
         
@@ -41,10 +48,14 @@ const Dropdown = () => {
     <div style={{width: "10rem"}}/>  
     <div className={classes.dropdown_content}>
       <div className={classes.dropdown_title}>
-         <p>Select Category</p>
+         <div className={classes.dropdown_title_content}>
+           <p>Select Category</p>
+           <FontAwesomeIcon icon={faCaretDown} />
+         </div>
+       
          <div className={classes.dropdown_items}>
            {
-             Categories.map((e) => <DrodownContent item={e.strCategory} />)
+             Categories.map((e,i) => <DrodownContent key={i} item={e.strCategory} />)
            }
            
          </div>
